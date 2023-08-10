@@ -10,36 +10,33 @@ function cityDateTime(timezone) {
 }
 
 function selectedCity(event) {
-    if (event.target.value.length > 0) {
-        setInterval(() => {
-            let cityTimezone = event.target.value;
+    setInterval(() => {
+        let cityTimezone = event.target.value;
+        if (cityTimezone === "current") {
+            cityTimezone = moment.tz.guess();
+        }
 
-            if (cityTimezone === "current") {
-                cityTimezone = moment.tz.guess();
-            }
+        cityTime = moment().tz(cityTimezone);
+        let city = cityTimezone.replace("_", " ").split("/")[1];
+        let citiesLmnt = document.querySelector(".cities");
 
-            cityTime = moment().tz(cityTimezone);
-            let city = cityTimezone.replace("_", " ").split("/")[1];
-            let citiesLmnt = document.querySelector(".cities");
-
-            citiesLmnt.innerHTML = `
-            <div class="city" id="">
-                <div>
-                    <h2>${city}</h2>
-                    <div class="date">${cityTime.format(
-                        "ddd, MMMM Do, YYYY"
-                    )}</div>
-                </div>
-                <div class="time">${cityTime.format("HH:mm:ss")}</div>
+        citiesLmnt.innerHTML = `
+        <div class="city">
+            <div>
+                <h2>${city}</h2>
+                <div class="date">${cityTime.format("ddd, MMMM Do, YYYY")}</div>
             </div>
-            `;
-        }, 1000);
-    }
+            <div class="time">${cityTime.format("HH:mm:ss")}</div>
+        </div>
+        <a href="/" class="home-link">Home</a>
+        `;
+    }, 1000);
 }
 
 setInterval(() => {
     cityDateTime("America/Los_Angeles");
     cityDateTime("Europe/Amsterdam");
+    cityDateTime("Universal");
 }, 1000);
 
 let citySelect = document.querySelector("#city-select");

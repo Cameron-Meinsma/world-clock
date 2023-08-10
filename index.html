@@ -13,7 +13,7 @@
             <h1>World Clock</h1>
 
             <select id="city-select">
-                <option value="">Select a city</option>
+                <option hidden>Select a city</option>
                 <option value="current">My location</option>
                 <option value="Europe/London">London</option>
                 <option value="America/New_York">New York</option>
@@ -22,6 +22,13 @@
             </select>
 
             <div class="cities">
+                <div class="city" id="Universal">
+                    <div>
+                        <h2>Universal</h2>
+                        <div class="date"></div>
+                    </div>
+                    <div class="time"></div>
+                </div>
                 <div class="city" id="Europe-Amsterdam">
                     <div>
                         <h2>Amsterdam</h2>
