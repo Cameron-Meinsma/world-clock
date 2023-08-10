@@ -13,6 +13,11 @@ function selectedCity(event) {
     if (event.target.value.length > 0) {
         setInterval(() => {
             let cityTimezone = event.target.value;
+
+            if (cityTimezone === "current") {
+                cityTimezone = moment.tz.guess();
+            }
+
             cityTime = moment().tz(cityTimezone);
             let city = cityTimezone.replace("_", " ").split("/")[1];
             let citiesLmnt = document.querySelector(".cities");
