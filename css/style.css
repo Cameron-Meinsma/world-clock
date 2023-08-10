@@ -1,4 +1,53 @@
+body {
+    background-color: #f0e3f4;
+    font-family: sans-serif;
+}
+
 h1,
-footer {
+footer,
+select {
     text-align: center;
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+h2 {
+    margin: 0;
+}
+
+.container {
+    display: block;
+    max-width: 600px;
+    margin: 60px auto;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 10px 5px 5px lightgrey;
+    border-radius: 10px;
+}
+
+.date {
+    opacity: 0.7;
+}
+
+.city {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-bottom: 1px dashed #f0e3f4;
+    padding: 30px 0;
+}
+
+.city:last-child {
+    border: none;
+}
+
+.time {
+    font-size: 36px;
+    font-weight: bold;
 }
